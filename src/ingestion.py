@@ -12,4 +12,7 @@ def standardize_image(image_path):
     # Resize the image to a standard size (e.g., 256x256)
     image_resized = cv2.resize(image, (256, 256))
     print(f"Image shape: {image_resized.shape}, dtype: {image_resized.dtype}, max: {image_resized.max()}, min: {image_resized.min()}")
-    return image_resized
+
+    image_normalized = image_resized / 255.0
+    print(f"After normalization - max: {image_normalized.max()}, min: {image_normalized.min()}, image: {image_normalized}")
+    return image_normalized
